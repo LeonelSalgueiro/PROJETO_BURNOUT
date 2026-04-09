@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predição de Risco de Burnout</title>
+    <link rel="stylesheet" href="style/styles.css">
+</head>
+<body>
+    <a href="#" class="site-logo" aria-label="Burnout Check — início">
+        <img src="assets/logo_site.png" alt="">
+    </a>
+
+    <main class="container">
+        <header class="page-header">
+            <h1>Avaliação de Risco de Burnout para Estudantes Universitários</h1>
+            <p class="page-subtitle">Responda em poucos minutos e receba uma orientação sobre seu nível de risco.</p>
+        </header>
+
+        <section id="startCard" class="card">
+            <div class="card-layout">
+                <div class="card-content">
+                    <h2>Pronto para começar?</h2>
+                    <p>Este teste é dividido em 4 etapas curtas.</p>
+                    <button id="startBtn" type="button">Começar teste</button>
+                </div>
+                <div class="card-image">
+                    <img src="mental-health.svg" alt="Ilustração sobre saúde mental">
+                </div>
+            </div>
+        </section>
+
+        <form id="burnoutForm" class="hidden">
+            <section class="card step-card hidden" data-step="1">
+                <div class="card-layout">
+                    <div class="card-content">
+                        <h2>Dados Pessoais e Acadêmicos</h2>
+                        <input type="number" id="age" placeholder="Idade" min="0" step="1" required>
+                        <input type="number" id="gender" placeholder="Gênero (0:Fem, 1:Masc)" step="1" required>
+                        <input type="number" id="academic_year" placeholder="Ano Acadêmico (1-5)" step="1" required>
+                        <button type="button" class="next-btn">Próximo</button>
+                    </div>
+                    <div class="card-image">
+                        <img src="mental-health.svg" alt="Ilustração sobre saúde mental">
+                    </div>
+                </div>
+            </section>
+
+            <section class="card step-card hidden" data-step="2">
+                <div class="card-layout">
+                    <div class="card-content">
+                        <h2>Rotina (Horas Diárias/Escala 0-10)</h2>
+                        <div class="range-field">
+                            <label for="study_hours_per_day">Quantas horas de estudo você dedica em média? <span class="range-value" data-for="study_hours_per_day">5</span></label>
+                            <input type="range" min="0" max="10" step="0.1" value="5" id="study_hours_per_day">
+                        </div>
+                        <div class="range-field">
+                            <label for="sleep_hours">Quantas horas você dorme em média? <span class="range-value" data-for="sleep_hours">5</span></label>
+                            <input type="range" min="0" max="10" step="0.1" value="5" id="sleep_hours">
+                        </div>
+                        <div class="range-field">
+                            <label for="physical_activity">Quantas horas de atividades físicas você dedica em média? <span class="range-value" data-for="physical_activity">5</span></label>
+                            <input type="range" min="0" max="10" step="0.1" value="5" id="physical_activity">
+                        </div>
+                        <div class="range-field">
+                            <label for="screen_time">Quantas horas você acredita usar dispositivos eletrônicos? <span class="range-value" data-for="screen_time">5</span></label>
+                            <input type="range" min="0" max="10" step="0.1" value="5" id="screen_time">
+                        </div>
+                        <div class="range-field">
+                            <label for="internet_usage">Quantas horas você acredita consumir de internet? <span class="range-value" data-for="internet_usage">5</span></label>
+                            <input type="range" min="0" max="10" step="0.1" value="5" id="internet_usage">
+                        </div>
+                        <button type="button" class="next-btn">Próximo</button>
+                    </div>
+                    <div class="card-image">
+                        <img src="mental-health.svg" alt="Ilustração sobre saúde mental">
+                    </div>
+                </div>
+            </section>
+
+            <section class="card step-card hidden" data-step="3">
+                <div class="card-layout">
+                    <div class="card-content">
+                        <h2>Pressões e Desempenho (Escala 0-10)</h2>
+                        <div class="range-field">
+                            <label for="exam_pressure">Se pudesse definir em uma média, o quão pressionado você se sente pelas provas da faculdade? <span class="range-value" data-for="exam_pressure">5</span></label>
+                            <input type="range" min="0" max="10" step="0.1" value="5" id="exam_pressure">
+                        </div>
+                        <div class="range-field">
+                            <label for="academic_performance">Qual o seu CR (Indice de Rendimento Academico)? <span class="range-value" data-for="academic_performance">5</span></label>
+                            <input type="range" min="0" max="10" step="0.1" value="5" id="academic_performance">
+                        </div>
+                        <div class="range-field">
+                            <label for="family_expectation">Se pudesse definir em média, o quão pressionado você se sente pela sua familia? <span class="range-value" data-for="family_expectation">5</span></label>
+                            <input type="range" min="0" max="10" step="0.1" value="5" id="family_expectation">
+                        </div>
+                        <div class="range-field">
+                            <label for="financial_stress">Se pudesse definir em média, o quão problemática é sua situação financeira? <span class="range-value" data-for="financial_stress">5</span></label>
+                            <input type="range" min="0" max="10" step="0.1" value="5" id="financial_stress">
+                        </div>
+                        <button type="button" class="next-btn">Próximo</button>
+                    </div>
+                    <div class="card-image">
+                        <img src="mental-health.svg" alt="Ilustração sobre saúde mental">
+                    </div>
+                </div>
+            </section>
+
+            <section class="card step-card hidden" data-step="4">
+                <div class="card-layout">
+                    <div class="card-content">
+                        <h2>Saúde Mental (Escala 0-10)</h2>
+                        <div class="range-field">
+                            <label for="stress_level">O quão estressado você se considera? <span class="range-value" data-for="stress_level">5</span></label>
+                            <input type="range" min="0" max="10" step="0.1" value="5" id="stress_level">
+                        </div>
+                        <div class="range-field">
+                            <label for="anxiety_score">O quão ansioso você se considera? <span class="range-value" data-for="anxiety_score">5</span></label>
+                            <input type="range" min="0" max="10" step="0.1" value="5" id="anxiety_score">
+                        </div>
+                        <div class="range-field">
+                            <label for="depression_score">O quão depressivo você se considera? <span class="range-value" data-for="depression_score">5</span></label>
+                            <input type="range" min="0" max="10" step="0.1" value="5" id="depression_score">
+                        </div>
+                        <div class="range-field">
+                            <label for="social_support">O quão amparado emocionalmente você sente ser por familiares e amigos? <span class="range-value" data-for="social_support">5</span></label>
+                            <input type="range" min="0" max="10" step="0.1" value="5" id="social_support">
+                        </div>
+                        <button type="submit" id="resultBtn">Ver resultado</button>
+                    </div>
+                    <div class="card-image">
+                        <img src="mental-health.svg" alt="Ilustração sobre saúde mental">
+                    </div>
+                </div>
+            </section>
+        </form>
+
+        <section id="resultCard" class="card hidden">
+            <div class="card-layout">
+                <div class="card-content">
+                    <h2>Resultado</h2>
+                    <div id="resultado"></div>
+                    <div id="tipsContainer" class="hidden">
+                        <h3>Dicas para lidar com o burnout</h3>
+                        <ul id="tipsList"></ul>
+                    </div>
+                </div>
+                <div class="card-image">
+                    <img src="mental-health.svg" alt="Ilustração sobre saúde mental">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script/script.js"></script>
+</body>
+</html>
