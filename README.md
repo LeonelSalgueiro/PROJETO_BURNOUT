@@ -109,6 +109,3 @@ Há um teste de desempenho do modelo em `testes/test_model.py`. Ajuste caminhos 
 - Este projeto é um **MVP educativo**; o resultado **não substitui** avaliação clínica ou psicológica profissional.
 - O notebook `api/burnout_dataset.ipynb` documenta o pipeline de dados e treino.
 
-## Licença
-
-Defina a licença no repositório conforme a política da sua instituição ou equipe.
